@@ -22,18 +22,13 @@ totally new to these topics, it may be a good idea to look at the generic
 Submitting issues
 -----------------
 
-Bugs and enhancements are tracked in the `issue tracker
-<https://github.com/robotframework/robotframework/issues>`_. If you are
-unsure if something is a bug or is a feature worth implementing, you can
-first ask on `robotframework-users`_ mailing list, on `IRC
-<http://webchat.freenode.net/?channels=robotframework&prompt=1>`_
-(#robotframework on irc.freenode.net), or on `Slack
-<https://robotframework-slack-invite.herokuapp.com>`_. These and other similar
-forums, not the issue tracker, are also places where to ask general questions.
-
 Before submitting a new issue, it is always a good idea to check is the
 same bug or enhancement already reported. If it is, please add your comments
 to the existing issue instead of creating a new one.
+
+How to check for the issues that are already present ?
+
+Answer: 
 
 Reporting bugs
 ~~~~~~~~~~~~~~
@@ -55,6 +50,10 @@ and preferably also reproduce it. Key things to have in good bug report:
 
 Notice that all information in the issue tracker is public. Do not include
 any confidential information there.
+
+How to find different logs in RIDE , that one can add to a RIDE issue? 
+
+Answer:
 
 Enhancement requests
 ~~~~~~~~~~~~~~~~~~~~
@@ -180,72 +179,6 @@ functionality. Different documentation is needed depending on the issue.
 User Guide
 ''''''''''
 
-Robot Framework's features are explained in the `User Guide
-<http://robotframework.org/robotframework/#user-guide>`_. It is generated
-using a custom script based on the source in `reStructuredText
-<http://docutils.sourceforge.net/rst.html>`_ format. For more details about
-editing and generating it see `<doc/userguide/README.rst>`_.
-
-Libraries
-'''''''''
-
-If `standard libraries
-<http://robotframework.org/robotframework/#standard-libraries>`_ distributed
-with Robot Framework are enhanced, also their documentation needs to
-be updated. Keyword documentation is created from docstrings using the `Libdoc
-<http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#libdoc>`_
-tool. Documentation must use Robot Framework's own `documentation formatting
-<http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#documentation-formatting>`_
-and follow these guidelines:
-
-- Other keywords and sections in the library introduction can be referenced
-  with internal links created with backticks like ```Example Keyword```.
-
-- When referring to arguments, argument names must use inline code style
-  created with double backticks like ````argument````.
-
-- Examples are recommended whenever the new keyword or enhanced functionality is
-  not trivial.
-
-- All new enhancements or changes should have a note telling when the change
-  was introduced. Often adding something like ``New in Robot Framework 3.1.``
-  is enough.
-
-Library documentation can be generated using `Invoke <http://pyinvoke.org>`_
-by running command
-
-::
-
-    invoke library-docs <name>
-
-where ``<name>`` is the name of the library or its unique prefix. Run
-
-::
-
-    invoke --help library-docs
-
-for more information see `<BUILD.rst>`_ for details about installing and
-using Invoke.
-
-API documentation
-'''''''''''''''''
-
-Modules and classes defined to be public should have API documentation.
-We do not generally use API docs with internal code because it is so hard
-to keep the docs in sync with the code. Instead we try to keep the code
-as clean and easy to understand as possible.
-
-API docs are created using docstrings following guidelines defined in
-`PEP-257`_. They are converted to HTML using `Sphinx <http://sphinx-doc.org/>`_
-and its `autodoc <http://sphinx-doc.org/ext/autodoc.html>`_ extension.
-Documentation can be created locally using `<doc/api/generate.py>`_ script
-that unfortunately creates a lot of errors on the console. Releases API docs
-are visible at https://robot-framework.readthedocs.org/.
-
-Robot Framework's public API docs are lacking in many ways. All public
-classes are not yet documented, existing documentation is somewhat scarce,
-and there could be more examples. Documentation improvements are highly
-appreciated!
 
 Tests
 ~~~~~
@@ -265,28 +198,7 @@ continuous integration.
 Executing changed code
 ''''''''''''''''''''''
 
-If you want to manually verify the changes, an easy approach is directly
-running the `<src/robot/run.py>`_ script that is part of Robot Framework
-itself. Alternatively you can use the `<rundevel.py>`_ script that sets
-some command line options and environment variables to ease executing tests
-under the `<atest/testdata>`_ directory. It also automatically creates a
-``tmp`` directory in the project root and writes all outputs there.
-
-If you want to install the current code locally, you can do it like
-``python setup.py install`` as explained in `<INSTALL.rst>`_. For
-instructions how to create a distribution that allows installing elsewhere
-see `<BUILD.rst>`_.
-
 Acceptance tests
 ''''''''''''''''
 
-Most of Robot Framework's testing is done using acceptance tests that
-naturally use Robot Framework itself for testing. Every new functionality
-or fix should generally get one or more acceptance tests. See
-`<atest/README.rst>`_ for more details about creating and executing them.
-
 Unit tests
-''''''''''
-
-Unit tests are great for testing internal logic and should be added when
-appropriate. For more details see `<utest/README.rst>`_.
